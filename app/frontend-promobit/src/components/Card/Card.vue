@@ -12,10 +12,12 @@
     <div>
       <h2 class="text-gray-800 font-semibold text-xl">{{ product.name }}</h2>
       <input hidden type="text" id="idProduct" :value="product.id" />
-      <p class="mt-1 text-gray-400 text-sm cursor-pointer">View</p>
+      <router-link :to="{ name: 'Product', params: { id:product.id}}">
+        <p class="mt-1 text-gray-400 text-sm cursor-pointer">View</p>
+      </router-link>
     </div>
     <div>
-			<router-link :to="{ name: 'Edit', params: { id:product.id }}">
+			<router-link :to="{ name: 'Edit', params: { id:product.id, name:product.name }}">
 				<button aria-label="Edit" class=" p-1
 						focus:outline-none focus:shadow-outline
 						text-teal-500
@@ -30,10 +32,11 @@
 
 <script>
 import Edit from '../../views/Edit.vue'
+import Product from '../../views/Product.vue'
 export default {
 	
 	components:{
-		Edit
+		Edit, Product
 	},
   props: {
     products: Array,
