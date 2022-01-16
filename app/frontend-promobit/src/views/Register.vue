@@ -20,6 +20,13 @@
             v-model="formData.name"
             placeholder="Name"
           />
+          <input
+            class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none"
+            type="text"
+            id="tagName"
+            v-model="formData.tagName"
+            placeholder="Tag"
+          />
         </div>
 
         <button
@@ -52,6 +59,7 @@ export default {
     return{
       formData:{
         name: '',
+        tagName: ''
       }
     }
   },
@@ -61,6 +69,7 @@ export default {
       .then((response) => console.log('sucesso'))
       .catch((error)=>console.log(error))
       .finally(() => {
+        this.$router.push('/products')
       });
     },
       

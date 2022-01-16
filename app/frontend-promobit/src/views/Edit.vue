@@ -13,6 +13,13 @@
             placeholder="Name"
             v-model="formData.name"
           >
+          <input
+            class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none"
+            type="text"
+            id="tagName"
+            placeholder="Tag"
+            v-model="formData.tagName"
+          >
         </div>
 
         <button
@@ -61,6 +68,7 @@ export default {
       formData:{
         id: parseInt(this.$route.params.id),
         name:'',
+        tagName:''
       } 
     }
   },
@@ -70,6 +78,7 @@ export default {
       .then((response) => console.log('sucesso'))
       .catch((error)=>console.log(error))
       .finally(() => {
+        this.$router.push('/products')
       });
     },
     deleteProduct(){
@@ -77,6 +86,7 @@ export default {
       .then((response) => console.log('sucesso'))
       .catch((error)=>console.log(error))
       .finally(() => {
+        this.$router.push('/products')
       });
     }
   }
